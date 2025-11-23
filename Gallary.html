@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
-<style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallary</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
       :root {
       --cyan: #09af6f;
       --lime: #d9f200;
@@ -53,276 +54,109 @@
       opacity: 0.95;
     }
 
-    /* MAIN CARD */
-    .card {
-      width: 100%;
-      max-width: 720px;
-      background: #fff;
-      border-radius: var(--radius);
-      padding: 28px 32px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(12, 24, 20, 0.03);
-      margin: 50px auto;
-    }
+   
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 28px;
-      align-items: start;
-    }
 
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-    }
 
-    /* Animate text sections */
-    .animate-on-scroll {
+
+
+
+
+    /* Animation setup */
+    .animate {
       opacity: 0;
-      transform: scale(0.85);
       transition: all 2s ease-out;
     }
-    .animate-on-scroll.visible {
+
+    .animate.show {
       opacity: 1;
-      transform: scale(1);
+      transform: translate(0, 0);
     }
 
-    /* Headings and text */
-    h1.hero {
-      font-size: 30px;
-      text-align: center;
+    /* specific directions */
+    .from-bottom {
+      transform: translateY(60px);
     }
 
-    h2.section {
-      margin: 28px 0 12px 0;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--accent);
+    .from-right {
+      transform: translateX(80px);
     }
 
-    p.lead {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 18px;
+    .from-left {
+      transform: translateX(-80px);
     }
 
-    ul.checklist {
-      padding-left: 20px;
-      margin: 8px 0;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .stat {
-      background: #f5f8fa;
-      padding: 22px 18px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: inset 0 1px rgba(0,0,0,0.02);
-    }
-
-    .stat .num {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .stat .label {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .muted-block {
-      background: #f7fbfa;
-      border-radius: 12px;
-      padding: 16px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* FOOTER (no animation) */
-    footer.site-footer {
-      margin-top: 38px;
-      background: var(--dark-footer);
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;
-    }
-
-
-
-
-
-
-
-
-
-  .gallery-preview {
-    max-width: 200px; /* before its 500px*/
-    margin: 40px auto;
-    text-align: center;
-  }
-
-  .gallery-preview img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    cursor: pointer;
-  }
-
-  .gallery-preview h3 {
-    margin-top: 10px;
-    font-size: 1.3em;
-  }
-
-  /* Overlay background */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    flex-direction: column;
-  }
-
-  .overlay img {
-    max-width: 60%; /* before its 90%*/
-    max-height: 50%; /* before its 80%*/
-    border-radius: 10px;
-    margin-bottom: 10px;
-    object-fit: cover;
-  }
-
-  .overlay button {
-    background: #00ffaa;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-
-  .thumbs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-  }
-
-  .thumbs img {
-    width:60px;
-    height: 60px;
-    border-radius: 8px;
-    object-fit: cover;
-    cursor: pointer;
-    opacity: 0.8;
-  }
-
-  .thumbs img:hover {
-    opacity: 1;
-    border: 2px solid #00ffaa;
-  }
-</style>
+    
+  </style>
 </head>
+
 <body>
-<header class="site-header" role="banner">
+
+  <header class="site-header" role="banner">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
-      <a style="color: #222; font-weight: 700;" href="#" >Gallary</a>
       <a href="./Contact.html">Contact</a>
-      <a href="./order.html">Order</a>
+      <a style="color: #222; font-weight: 700;" href="#">Gallary</a>
     </nav>
   </header>
 
 
+  <i style="font-size: 5em; /* Iconን አምስት እጥፍ ያሳድገዋል */
+            color: #1a9148; /* ሰማያዊ ቀለም ይሰጠዋል */
+            display: block;
+            text-align: center;
+            margin-top: 50px;" class="fa-solid fa-images icon-example"></i>
+<br>
+  <div style="margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0vh;
+        background: #fff;
+        font-family: Arial, sans-serif;">
 
 
-<div style="font-family: Poppins, sans-serif;
-    background: #f1f5f9;
-    margin: 0;
-    padding: 0;
-    color: #0f172a;">
-  <div style="height:10px;"></div> <!-- ክፍተት በ 60px -->
-<!-- MAIN PREVIEW IMAGE -->
 
-<div class="gallery-preview">
-  <h3><b  style="font-size: 10px; text-align: left; color:var(--accent)">Food Items</b> <a style="text-align: right; font-size: 8px;">23 pic</a></h3>
+
+<div style="text-align: center;
+        color: #000;" class="container">
+    <div style=" font-size: 90px;
+        color: #253239;
+        margin-bottom: 15px;" class="icon"></div>
+    <div style="font-size: 28px;
+        font-weight: 700;" class="text">No Gallary Found</div>
+</div>
+</div>
+
+
  
-   <img style="width: 250px; height: 200px; text-align: center;" src="./Food Items.jpg" alt="Food Items" id="openGallery">
+ 
   
-</div>
-
-<!-- OVERLAY GALLERY 1 -->
-<div class="overlay" id="galleryOverlay">
-  <img id="mainPhoto" src="./Food Items.jpg" alt="Gallery Photo">
-  <div class="thumbs">
-    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-    <img src="./Food Items.jpg" onclick="changePhoto(this.src)">
-    <img src="./Map.png" onclick="changePhoto(this.src)">
-    <img src="./HealthCare.jpg" onclick="changePhoto(this.src)">
-    <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
-    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-  </div>
-  <button onclick="closeGallery()">Back</button>
-</div>
-
-
-<!-- MAIN PREVIEW IMAGE  2-->
-<div class="gallery-preview">
-  <h3><b style="font-size: 10px; color:var(--accent)">Cooking Tasks</b> <a style="text-align:right; font-size: 8px;">23 pic</a></h3>
-  <img style="width: 250px; height: 200px; text-align: center;" src="./Cooking Tasks.jpg" alt="Cooking Tasks" id="openGallery">
-  
-</div>
-
-<!-- OVERLAY GALLERY -->
-<div class="overlay" id="galleryOverlay">
-  <img id="mainPhoto" src="./Cooking Tasks.jpg" alt="Gallery Photo">
-  <div class="thumbs">
-    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-    <img src="./Food Items.jpg" onclick="changePhoto(this.src)">
-    <img src="./Map.png" onclick="changePhoto(this.src)">
-    <img src="./HealthCare.jpg" onclick="changePhoto(this.src)">
-    <img src="./Rebyii Hosts.png" onclick="changePhoto(this.src)">
-    <img src="./Ebro Hosts.jpg" onclick="changePhoto(this.src)">
-  </div>
-  <button onclick="closeGallery()">Back</button>
-</div>
-
-<footer class="site-footer" role="contentinfo">
+   
+<div style="height:210px;"></div> <!-- ክፍተት በ 60px -->
+  <footer style=" margin-top: 38px;
+      background: var(--dark-footer);
+      color: #dcdcdc;
+      text-align: center;
+      padding: 18px 10px;
+      font-size: 13px;" class="site-footer">
     © 2025 EbRo-Shop. All rights reserved.
   </footer>
+  <script>
+    // Animation observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
 
-
-
-<script>
-  const overlay = document.getElementById("galleryOverlay");
-  const mainPhoto = document.getElementById("mainPhoto");
-  const openGallery = document.getElementById("openGallery");
-
-  openGallery.onclick = () => {
-    overlay.style.display ="flex";
-  };
-
-  function closeGallery() {
-    overlay.style.display = "none";
-  }
-
-  function changePhoto(src) {
-    mainPhoto.src = src;
-  }
-</script>
-</div>
-
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
