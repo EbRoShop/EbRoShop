@@ -97,7 +97,7 @@
 
 
           <div style="margin-bottom:18px" class="field">
-        <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Full Name<span style="color:#d33">*</b></span></label>
+        <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Name<span style="color:#d33">*</b></span></label>
         <div style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;" class="input-wrap">
           <div style="background-color: rgb(48, 121, 54); width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0; " class="input-icon" aria-hidden="true">
             <!-- user icon -->
@@ -258,7 +258,7 @@
       const payment=document.getElementById("paymentMethod").value;
       const totals=computeTotals();
       let lines=[];
-      lines.push("EbroShop — New Order",""); 
+      lines.push("🔔EbroShop — New Order",""); 
       if(name) lines.push("Customer: "+name);
       if(phone) lines.push("Phone: "+phone);
       lines.push("Payment method: "+payment,"","Order details:");

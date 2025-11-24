@@ -275,6 +275,11 @@
       text-align: center;
       color: var(--muted)
     }
+
+      input[type="text"], input[type="tel"]{
+    border:0;padding:14px 12px;font-family:var(--mono);font-size:16px;outline:none;background:transparent;flex:1;
+  }
+
   </style>
 </head>
 
@@ -322,9 +327,35 @@
           </div>
 
           <div class="checkout-form" id="checkoutForm">
-            <input type="text" id="custName" placeholder="Your name" required />
-            <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required />
-            <textarea id="custAddress" rows="2" placeholder="Delivery address" required></textarea>
+             
+          <div style="margin-bottom:18px" class="field">
+        <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Name<span style="color:#d33">*</b></span></label>
+        <div style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;" class="input-wrap">
+          <div style="background-color: rgb(48, 121, 54); width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0; " class="input-icon" aria-hidden="true">
+            <!-- user icon -->
+            <svg style="  width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3"></circle>
+              <path d="M4 20c1.5-4 7-4 8-4s6.5 0 8 4"></path>
+            </svg>
+          </div>
+          <input type="text" id="custName"  placeholder="Your Name" required>
+        </div>
+      </div>
+
+         <div style="margin-bottom:18px"  class="field">
+        <label style="font-size:16px;margin-bottom:8px;display:block"  class="label"><b>Phone<span style="color:#d33">*</b></span></label>
+        <div style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;" class="input-wrap">
+          <div style="background-color: rgb(40, 112, 154);  width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0;
+  "  class="input-icon" aria-hidden="true">
+            <!-- phone icon -->
+            <svg style="width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.55-1.55a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required pattern="[0-9+ ]+" />
+        </div>
+      </div>
+
             <select style="background-color: #6b6b6b; color: #faf0ea;" id="paymentMethod">
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
@@ -378,18 +409,18 @@
     const DEFAULT_DELIVERY_FEE = 50;
 
     const MENU = [
-      { id: "Omaar5", name: "Omaar oil", price: 1200, desc: "ኦማር ዘይት 5-ሊትር", img: "./Omaar 5 litter.png" },
-      { id: "Omaar3", name: "Omaar oil", price: 650, desc: "ኦማር ዘይት 3-ሊትር", img: "./Omaar 3 litter.jpg" },
-      { id: "Omaar1", name: "Omaar oil", price: 300, desc: "ኦማር ዘይት 1-ሊትር", img: "./Omaar 1 litter.jpg" },
-      { id: "Orkide5", name: "Orkide oil", price: 950, desc: "ኦርካይድ ዘይት 5-ሊትር", img: "./orkide 5 litter.jpeg" },
-      { id: "Orkide3", name: "Orkide oil", price: 500, desc: "ኦርካይድ ዘይት 3-ሊትር", img: "./Orkide 3 litter.jpg" },
+      { id: "Omaar5", name: "Omaar oil 5-litter", price: 1200, desc: "ኦማር ዘይት ", img: "./Omaar 5 litter.png" },
+      { id: "Omaar3", name: "Omaar oil 3-litter", price: 650, desc: "ኦማር ዘይት ", img: "./Omaar 3 litter.jpg" },
+      { id: "Omaar1", name: "Omaar oil 1-litter", price: 300, desc: "ኦማር ዘይት ", img: "./Omaar 1 litter.jpg" },
+      { id: "Orkide5", name: "Orkide oil 5-litter", price: 950, desc: "ኦርካይድ ዘይት ", img: "./orkide 5 litter.jpeg" },
+      { id: "Orkide3", name: "Orkide oil 3-litter", price: 500, desc: "ኦርካይድ ዘይት ", img: "./Orkide 3 litter.jpg" },
       { id: "Oche", name: "Oche ቅቤ", price: 900, desc: "Oche vegetable ghee", img: "./Oche butter.jpeg" },
       { id: "Sheno", name: "Sheno ቅቤ", price: 1000, desc: "Sheno vegetable ghee", img: "./Sheno butter.jpeg" },
-      { id: "Ketchup5", name: "ካቻፕ", price: 1000, desc: "Ketchup 5-litter", img: "./5 litter katchap.jpeg" },
-      { id: "Ketchup1", name: "ካቻፕ", price: 250, desc: "Ketchup 1-litter", img: "./1 litter katchap.jpg" },
-      { id: "Mustared", name: "ሰናፍጭ", price: 400, desc: "Mustared 2-litter", img: "./2 litter mustared.jpg" },
-      { id: "Quaker", name: "ኩከር", price: 650, desc: "Quaker", img: "./Quaker.jpeg" },
-      { id: "MertiT", name: "መርቲ ቲማቲምስልስ", price: 340, desc: "Merti Tomato paste", img: "./merti የጣሳ.jpeg" },
+      { id: "Ketchup5", name: "ካቻፕ 5-litter", price: 1000, desc: "Ketchup 5-litter", img: "./5 litter katchap.jpeg" },
+      { id: "Ketchup1", name: "ካቻፕ 3-litter", price: 250, desc: "Ketchup 1-litter", img: "./1 litter katchap.jpg" },
+      { id: "Mustared", name: "Mustared 2-litter", price: 400, desc: "ሰናፍጭ", img: "./2 litter mustared.jpg" },
+      { id: "Quaker", name: "Quaker", price: 650, desc: "ኩከር", img: "./Quaker.jpeg" },
+      { id: "MertiT", name: "መርቲ ቲማቲምስልስ(የጣሳ)", price: 340, desc: "Merti Tomato paste", img: "./merti የጣሳ.jpeg" },
       { id: "Merti", name: "መርቲ ቲማቲምስልስ(ተንጠልጣይ)", price: 150, desc: "Merti Tomato paste", img: "./merti ተንጠልጣይ.jpeg" },
       { id: "Cornfloar", name: "የበቆሎ ዱቄት", price: 500, desc: "Corn floar", img: "./corn floar.jpeg" },
       { id: "knorr", name: "ክኖር አንኳር", price: 750, desc: "knorr", img: "./knorr.jpeg" },
@@ -446,7 +477,7 @@
     function clearCart() { cart = []; saveCart(); renderCart(); }
     function computeTotals() { const subtotal = cart.reduce((s, i) => s + (Number(i.price) * Number(i.qty)), 0); const delivery = subtotal >= DELIVERY_FREE_THRESHOLD && subtotal > 0 ? 0 : (subtotal === 0 ? 0 : DEFAULT_DELIVERY_FEE); const total = subtotal + delivery; return { subtotal, delivery, total }; }
     function renderCart() {
-      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your cart is empty — add tasty food from the menu.</div>'; }
+      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your bag is empty — add favorite products from the menu.</div>'; }
       else {
         cartListEl.innerHTML = cart.map(ci => {
           const img = (findMenuItem(ci.id) || {}).img || "";
@@ -463,14 +494,12 @@
     function buildOrderText() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
-      const address = document.getElementById("custAddress").value.trim();
       const payment = document.getElementById("paymentMethod").value;
       const totals = computeTotals();
       let lines = [];
-      lines.push("EbroShop — New Order", "");
+      lines.push("🔔EbroShop — New Order", "");
       if (name) lines.push("Customer: " + name);
       if (phone) lines.push("Phone: " + phone);
-      if (address) lines.push("Address: " + address);
       lines.push("Payment method: " + payment, "", "Order details:");
       if (cart.length === 0) { lines.push("- (empty)"); }
       else { cart.forEach(ci => lines.push(`${ci.name} x ${ci.qty} = ${ci.price * ci.qty} Birr`)); }
@@ -485,16 +514,16 @@
     async function sendOrderTelegram() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
-      const address = document.getElementById("custAddress").value.trim();
+      
 
-      if (cart.length === 0) { alert("Your Bag is empty. Add items before sending the order."); return; }
-      if (!name || !phone || !address) { alert("Please enter your name, phone and address to send the order."); return; }
+      if (cart.length === 0) { alert("Your Bag is empty. Add products before sending the order."); return; }
+      if (!name || !phone) { alert("Please enter your name and phone before send the order."); return; }
 
       const message = buildOrderText();
       const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(message)}`; try {
         const res = await fetch(url);
         if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
-        else { alert("Failed to send order via Telegram."); }
+        else { alert("Failed to send order, please try agin."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
 
