@@ -324,7 +324,7 @@
           <div class="checkout-form" id="checkoutForm">
             <input type="text" id="custName" placeholder="Your name" required />
             <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required />
-            <textarea id="custAddress" rows="2" placeholder="Delivery address" required></textarea>
+           
             <select style="background-color: #6b6b6b; color: #faf0ea;" id="paymentMethod">
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
@@ -448,7 +448,7 @@
     function clearCart() { cart = []; saveCart(); renderCart(); }
     function computeTotals() { const subtotal = cart.reduce((s, i) => s + (Number(i.price) * Number(i.qty)), 0); const delivery = subtotal >= DELIVERY_FREE_THRESHOLD && subtotal > 0 ? 0 : (subtotal === 0 ? 0 : DEFAULT_DELIVERY_FEE); const total = subtotal + delivery; return { subtotal, delivery, total }; }
     function renderCart() {
-      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your cart is empty — add tasty food from the menu.</div>'; }
+      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your bag is empty — add favorite products from the menu.</div>'; }
       else {
         cartListEl.innerHTML = cart.map(ci => {
           const img = (findMenuItem(ci.id) || {}).img || "";
@@ -465,14 +465,12 @@
     function buildOrderText() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
-      const address = document.getElementById("custAddress").value.trim();
       const payment = document.getElementById("paymentMethod").value;
       const totals = computeTotals();
       let lines = [];
       lines.push("EbroShop — New Order", "");
       if (name) lines.push("Customer: " + name);
       if (phone) lines.push("Phone: " + phone);
-      if (address) lines.push("Address: " + address);
       lines.push("Payment method: " + payment, "", "Order details:");
       if (cart.length === 0) { lines.push("- (empty)"); }
       else { cart.forEach(ci => lines.push(`${ci.name} x ${ci.qty} = ${ci.price * ci.qty} Birr`)); }
@@ -487,16 +485,16 @@
     async function sendOrderTelegram() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
-      const address = document.getElementById("custAddress").value.trim();
+      
 
       if (cart.length === 0) { alert("Your Bag is empty. Add items before sending the order."); return; }
-      if (!name || !phone || !address) { alert("Please enter your name, phone and address to send the order."); return; }
+      if (!name || !phone) { alert("Please enter your name and phone to send the order."); return; }
 
       const message = buildOrderText();
       const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(message)}`; try {
         const res = await fetch(url);
         if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
-        else { alert("Failed to send order via Telegram."); }
+        else { alert("Failed to send order please try again."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
 
