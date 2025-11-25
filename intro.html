@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading.</title>
+
+<style>
+    body{
+        margin:0;
+        background:#071A42; /* Dark blue background */
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        animation: fadeOut 2s ease 2.5s forwards;
+    }
+
+    .logo{
+        text-align:center;
+        color:white;
+        animation: fadeIn 1.5s ease;
+    }
+    keyframes fadeIn{
+        from{opacity:0; transform:scale(0.8);}
+        to{opacity:1; transform:scale(1);}
+    }
+
+    @keyframes fadeOut{
+        to{opacity:0;}
+    }
+</style>
+
+</head>
+<body>
+   <div style="margin: 0;
+     /* dark blue background */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 10vh;">
+    <div Style="display: flex;
+    justify-content: center;
+    align-items: center;" class="logo-container">
+        <svg width="150" height="180" viewBox="0 0 260 230">
+            <!-- Top shape -->
+            <path d="M130 10 L170 80 L90 80 Z" fill="#c5a14e" />
+
+            <!-- Bottom-left shape -->
+            <path d="M90 90 L40 170 Q30 200 65 210 Q100 220 130 170 Z" fill="#c5a14e" />
+
+            <!-- Bottom-right shape -->
+            <path d="M170 90 L220 170 Q230 200 195 210 Q160 220 130 170 Z" fill="#c5a14e" />
+        </svg>
+    </div>
+      
+    </div>
+    <br>
+    <div>
+    <h1 style=" font-size: 50px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1; font-family: 'Times New Roman', Times, serif; color:antiquewhite" class="main-text">EBRO</h1>
+     <p style="  font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+       color: rgb(190, 160, 85);
+     margin-top: 3px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px; text-align: center;   " class="sub-text">SHOP</p>
+    <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: rgb(190, 160, 85);
+           margin-top: 5px;
+           font-weight: 100; text-align:center;" class="tagline">Online platform</p>
+    </div>
+<script>
+    // redirect to home page after animation ends
+    setTimeout(function(){
+        window.location.href = "index.html"; // your homepage
+    }, 5000); // 3 seconds
+</script>
+
+</body>
+</html>
