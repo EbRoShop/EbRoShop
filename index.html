@@ -8,13 +8,123 @@
 <style>
     body{
         margin:0;
-        background:#071A42; /* Dark blue background */
+        background:#101e3c; /* Dark blue background */
         display:flex;
         justify-content:center;
         align-items:center;
-        height:100vh;
-        animation: fadeOut 2s ease 2.5s forwards;
+        height:50vh;
+        animation: fadeOut 2s ease 2s forwards;
     }
+
+/* CSS Variables for easy color adjustments */
+:root {
+/* Navy Blue Background */
+--dark-blue: #0d1e37;
+/* Gold Color for logo and text accents */
+--gold: #c9a44c;
+ /* White Color for main text */
+ --white:#ffffff;
+  /* --- Global Setup --- */
+}
+body   {
+        background-color: var(--dark-blue);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+ /* Ensures the content is centered vertically and horizontally */
+        height: 100vh;
+        margin: 0;
+/* Using a clean, standard sans-serif font for the main text */
+        font-family: Arial, sans-serif;
+        color: var(--white);
+        }
+.logo-container {
+                 text-align: center;
+                 padding: 20px;
+              }
+/* --- Logo Symbol (Exact Replication) --- */
+.symbol {
+            width: 150px; /* Overall size */
+            height: 150px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+ /* Base class for all gold sh*/       
+ .gold-shape {         
+          position:absolute;          
+         background-color: #c9a44c;          
+          }
+
+
+/* 1. The top Triangular Shape */
+.top-triangle {
+/* Using clip-path to create the triangle with sharp points */
+              width: 80px;
+              height: 70px;
+              clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+              top: 0;
+              left: 50%;
+               transform: translateX(-50%);
+              
+               }
+/* 2. & 3. The two curved, teardrop/petal shapes */
+.petal {
+       width: 70px;
+       height: 80px;
+/* Creates the rounded bottom and curved sides */
+       border-radius: 0 0 50% 50%;
+       bottom: 0;
+       }   
+
+.petal-left {
+          left: 20px;
+    /* Rotate to match the angle of the original image */
+          transform: rotate(-35deg);
+           }
+.petal-right {
+        right: 20px;
+/* Rotate to match the angle of the original image */
+        transform: rotate(35deg);
+            }
+                     /* --- Text Styling (ALULA -> EBRO) --- */
+         .main-text {
+             font-size: 50px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1;
+         }
+
+
+/* --- Text Styling (HOSPITAL -> SHOP) --- */
+.sub-text {
+     font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+     color: var(--gold);
+     margin-top: 10px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px;      
+}
+       /* Thin gold underline */
+ .sub-text::after {
+           content: '';
+           display: block;
+           width: 50px;
+           height: 1px;
+           background-color: var(--gold);
+           margin: 5px auto 0;
+       }
+       /* --- Text Styling (Prestige Care) --- */
+       .tagline {
+           /* Using a common script/cursive font for approximation of the original font */
+           font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: var(--gold);
+           margin-top: 15px;
+           font-weight: 100;
+       }
 
     .logo{
         text-align:center;
@@ -33,31 +143,14 @@
 
 </head>
 <body>
-   <div style="margin: 0;
-     /* dark blue background */
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    height: 10vh;">
-    <div Style="display: flex;
-    justify-content: center;
-    align-items: center;" class="logo-container">
-        <svg width="150" height="180" viewBox="0 0 260 230">
-            <!-- Top shape -->
-            <path d="M130 10 L170 80 L90 80 Z" fill="#c5a14e" />
-
-            <!-- Bottom-left shape -->
-            <path d="M90 90 L40 170 Q30 200 65 210 Q100 220 130 170 Z" fill="#c5a14e" />
-
-            <!-- Bottom-right shape -->
-            <path d="M170 90 L220 170 Q230 200 195 210 Q160 220 130 170 Z" fill="#c5a14e" />
-        </svg>
-    </div>
-      
-    </div>
-    <br>
-    <div>
-    <h1 style=" font-size: 50px;
+    <div style=" text-align: center;
+                 padding: 20px;" class="logo-container">
+     <div class="symbol">
+       <div  class="gold-shape top-triangle"></div>
+       <div  class="gold-shape petal petal-left"></div>
+       <div  class="gold-shape petal petal-right"></div>
+     </div>
+     <h1 style=" font-size: 50px;
              font-weight: 700;
              letter-spacing: 5px;
              margin: 0;
@@ -65,22 +158,26 @@
      <p style="  font-size: 18px;
      font-weight: 400;
      text-transform: uppercase;
-       color: rgb(190, 160, 85);
-     margin-top: 3px;
+     color: var(--gold);
+     margin-top: 10px;
      padding-bottom: 5px;
      position: relative;
-     letter-spacing: 2px; text-align: center;   " class="sub-text">SHOP</p>
+     letter-spacing: 2px;   " class="sub-text">SHOP</p>
     <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
            font-size: 25px;
-           color: rgb(190, 160, 85);
-           margin-top: 5px;
-           font-weight: 100; text-align:center;" class="tagline">Online platform</p>
-    </div>
+           color: var(--gold);
+           margin-top: 15px;
+           font-weight: 100;" class="tagline">Online platform</p>
+    
+</div>
+
+  
+   
 <script>
     // redirect to home page after animation ends
     setTimeout(function(){
         window.location.href = "home.html"; // your homepage
-    }, 5000); // 3 seconds
+    }, 3000); // 3 seconds
 </script>
 
 </body>
