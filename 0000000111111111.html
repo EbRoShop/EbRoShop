@@ -99,10 +99,10 @@
       flex-direction: column;
       gap: 8px;
       /* --- START: Added for Animation --- */
-      transition: transform 1.5s ease, box-shadow 1s ease, opacity 1.5s ease;/*before transform 0.3s,box-shadow 0.3s,opesitty 0.6s*/
+      transition: transform 4s ease, box-shadow 1s ease, opacity 1.5s ease;/*before transform 0.3s,box-shadow 0.3s,opesitty 0.6s*/
       /* Initial state for scroll-in animation */
       opacity: 0;
-      transform: translateY(150px);
+      transform: translateY(170px);
       /* --- END: Added for Animation --- */
     }
     
@@ -399,8 +399,10 @@
             </select>
             <ul class="info-list" aria-hidden="false">
               <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙም።</li>
-              <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
-              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
+              <details style="background: #bdbbbb; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary><b>ለትዕዛዝዎ Transfer(ባንክ ወይም ቴሌብር) ተጠቅመዋል?</b></summary>
+       <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
+       <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
                 ይላኩልን።
                 CBE➡<b style="color: rgb(255, 255, 255); background-color: #494747;">1000617484793</b> Hayru Dejene
                 Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #5a5959;">0970130755</b> Hayiru</li>
@@ -409,6 +411,11 @@
               <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b
                   style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም
                 መላክ አለባችሁ።</li>
+    </details>
+
+
+
+              
               <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
               <li> ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿</li>
               <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li>
@@ -564,7 +571,7 @@
       const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
-        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
+        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳<li>ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>  <li> ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿</li><li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li>"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
