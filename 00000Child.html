@@ -97,14 +97,35 @@
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      gap: 8px
+      gap: 8px;
+      /* --- START: Added for Animation --- */
+      transition: transform 4s ease, box-shadow 1s ease, opacity 1.5s ease;/*before transform 0.3s,box-shadow 0.3s,opesitty 0.6s*/
+      /* Initial state for scroll-in animation */
+      opacity: 0;
+      transform: translateY(170px);
+      /* --- END: Added for Animation --- */
     }
+    
+    /* --- START: Added for Animation (Hover Effect) --- */
+    .card:hover {
+      transform: scale(1.03) translateY(-2px); /* Scale up and slight lift */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+      z-index: 10; /* Ensure the hovered card is on top */
+    }
+
+    /* State after being observed (in view) */
+    .card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* --- END: Added for Animation (Hover Effect) --- */
 
     .card img {
       width: 100%;
       height: 270px;
-      object-fit:cover;
-      border-radius: 8px /*8*/
+      object-fit: cover;
+      border-radius: 8px
+      /*8*/
     }
 
     .meta {
@@ -179,7 +200,6 @@
       overflow: auto;
       margin-bottom: 10px
     }
-
     .cart-item {
       display: flex;
       gap: 10px;
@@ -276,10 +296,16 @@
       color: var(--muted)
     }
 
-      input[type="text"], input[type="tel"]{
-    border:0;padding:14px 12px;font-family:var(--mono);font-size:16px;outline:none;background:transparent;flex:1;
-  }
-
+    input[type="text"],
+    input[type="tel"] {
+      border: 0;
+      padding: 14px 12px;
+      font-family: var(--mono);
+      font-size: 16px;
+      outline: none;
+      background: transparent;
+      flex: 1;
+    }
   </style>
 </head>
 
@@ -327,43 +353,55 @@
           </div>
 
           <div class="checkout-form" id="checkoutForm">
-              <div style="margin-bottom:18px" class="field">
-        <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Name<span style="color:#d33">*</b></span></label>
-        <div style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;" class="input-wrap">
-          <div style="background-color: rgb(48, 121, 54); width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0; " class="input-icon" aria-hidden="true">
-            <!-- user icon -->
-            <svg style="  width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="3"></circle>
-              <path d="M4 20c1.5-4 7-4 8-4s6.5 0 8 4"></path>
-            </svg>
-          </div>
-          <input type="text" id="custName"  placeholder="Your Name" required>
-        </div>
-      </div>
+            <div style="margin-bottom:18px" class="field">
+              <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Name<span
+                    style="color:#d33">*</b></span></label>
+              <div
+                style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;"
+                class="input-wrap">
+                <div
+                  style="background-color: rgb(48, 121, 54); width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0; "
+                  class="input-icon" aria-hidden="true">
+                  <svg style=" width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="3"></circle>
+                    <path d="M4 20c1.5-4 7-4 8-4s6.5 0 8 4"></path>
+                  </svg>
+                </div>
+                <input type="text" id="custName" placeholder="Your Name" required>
+              </div>
+            </div>
+            <div style="margin-bottom:18px" class="field">
+              <label style="font-size:16px;margin-bottom:8px;display:block" class="label"><b>Phone<span
+                    style="color:#d33">*</b></span></label>
+              <div
+                style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;"
+                class="input-wrap">
+                <div
+                  style="background-color: rgb(40, 112, 154); width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0;
+          " class="input-icon" aria-hidden="true">
+                  <svg style="width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.55-1.55a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z">
+                    </path>
+                  </svg>
+                </div>
+                <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required
+                  pattern="[0-9+ ]+" />
+              </div>
+            </div>
 
-               <div style="margin-bottom:18px"  class="field">
-        <label style="font-size:16px;margin-bottom:8px;display:block"  class="label"><b>Phone<span style="color:#d33">*</b></span></label>
-        <div style=" display:flex;align-items:center;background:#f6f6f6;border-radius:10px;border:1px solid #dedede;overflow:hidden;" class="input-wrap">
-          <div style="background-color: rgb(40, 112, 154);  width:58px;height:48px;display:flex;align-items:center;justify-content:center;border-right:1px solid #e0e0e0;
-  "  class="input-icon" aria-hidden="true">
-            <!-- phone icon -->
-            <svg style="width:20px;height:20px;opacity:.9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.55-1.55a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-          </div>
-          <input type="tel" id="custPhone" placeholder="Phone number (e.g. +2519...)" required pattern="[0-9+ ]+" />
-        </div>
-      </div>
 
-      
             <select style="background-color: #6b6b6b; color: #faf0ea;" id="paymentMethod">
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
             </select>
             <ul class="info-list" aria-hidden="false">
-              <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙ።</li>
+              <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙም።</li>
               <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
-              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት ይላኩልን።
+              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
+                ይላኩልን።
                 CBE➡<b style="color: rgb(255, 255, 255); background-color: #494747;">1000617484793</b> Hayru Dejene
                 Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #5a5959;">0970130755</b> Hayiru</li>
               <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም
@@ -390,27 +428,25 @@
         </div>
       </aside>
     </div>
-
     <footer style=" margin-top: 38px;
-      background: black;
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;" class="site-footer">
+         background: black;
+         color: #dcdcdc;
+         text-align: center;
+         padding: 18px 10px;
+         font-size: 13px;" class="site-footer">
       © 2025 EbRo-Shop. All rights reserved.
     </footer>
   </div>
 
   <script>
-    /*******
+    /***
      * CONFIG / MENU DATA
-     *******/
+     ***/
     const DELIVERY_FREE_THRESHOLD = 0;
     const DEFAULT_DELIVERY_FEE = 50;
-
     const MENU = [
       { id: "Nido9", name: "Nido milk-900g", price: 1000, desc: "ኒዶ የልጆች ወተት", img: "./nido 900.jpg" },
-      { id: "Nido4", name: "Nido milk-400g", price: 600, desc: "ኒዶ የልጆች ወተት", img: "./Nido 400.jpeg" },  
+      { id: "Nido4", name: "Nido milk-400g", price: 600, desc: "ኒዶ የልጆች ወተት", img: "./Nido 400.jpeg" },
       { id: "Lato25", name: "Lato milk-2.5Kg", price: 2000, desc: "ላቶ የልጆች ወተት", img: "./Lato 2.5kg.webp" },
       { id: "Lato9", name: "Lato milk-900g", price: 1100, desc: "ላቶ የልጆች ወተት", img: "./Lato 900g.jpg" },
       { id: "Lato4", name: "Lato milk-400g", price: 550, desc: "ላቶ የልጆች ወተት", img: "./Lato 400g.jpeg" },
@@ -418,9 +454,9 @@
       { id: "Nura9", name: "Nura milk-900g", price: 600, desc: "ኑራ የልጆች ወተት", img: "./Nura milk 900g.jpg" },
       { id: "Nura4", name: "Nura milk-400g", price: 450, desc: "ኑራ የልጆች ወተት", img: "./Nura milk 400g.jpg" },
       { id: "liptomil1", name: "liptomil milk-1ቁጥር", price: 650, desc: "ሊፕቶሚል የልጆች ወተት", img: "./liptomil-plus-1.png" },
-      { id: "liptomil2", name: "liptomil milk-2ቁጥር", price: 700, desc: "ሊፕቶሚል የልጆች ወተት", img: "./liptomil-plus-2.jpeg" },  
-      { id: "liptomil3", name: "liptomil milk-3ቁጥር", price: 800, desc: "ሊፕቶሚል የልጆች ወተት", img: "./liptomil-plus-3.jpeg" }, 
-      { id: "Goodbaby1", name: "GoodBaby Dayper-1ቁጥር", price: 500, desc: "ጉድቤቢ ዳይፐር", img: "./GoodBaby 1.jpg" }, 
+      { id: "liptomil2", name: "liptomil milk-2ቁጥር", price: 700, desc: "ሊፕቶሚል የልጆች ወተት", img: "./liptomil-plus-2.jpeg" },
+      { id: "liptomil3", name: "liptomil milk-3ቁጥር", price: 800, desc: "ሊፕቶሚል የልጆች ወተት", img: "./liptomil-plus-3.jpeg" },
+      { id: "Goodbaby1", name: "GoodBaby Dayper-1ቁጥር", price: 500, desc: "ጉድቤቢ ዳይፐር", img: "./GoodBaby 1.jpg" },
       { id: "Goodbaby2", name: "GoodBaby Dayper-2ቁጥር", price: 500, desc: "ጉድቤቢ ዳይፐር", img: "./GoodBaby 2.png" },
       { id: "Goodbaby3", name: "GoodBaby Dayper-3ቁጥር", price: 500, desc: "ጉድቤቢ ዳይፐር", img: "./GoodBaby 3.png" },
       { id: "Goodbaby4", name: "GoodBaby Dayper-4ቁጥር", price: 500, desc: "ጉድቤቢ ዳይፐር", img: "./GoodBaby 4.jpg" },
@@ -429,12 +465,12 @@
       { id: "ABC2", name: "ABC Dayper-2ቁጥር", price: 500, desc: "ኤቢሲ ዳይፐር", img: "./ABC 2.jpg" },
       { id: "ABC3", name: "ABC Dayper-3ቁጥር", price: 500, desc: "ኤቢሲ ዳይፐር", img: "./ABC 3.jpg" },
       { id: "ABC4", name: "ABC Dayper-4ቁጥር", price: 500, desc: "ኤቢሲ ዳይፐር", img: "./ABC 4.jpg" },
-      { id: "ABC5", name: "ABC Dayper-5ቁጥር", price: 500, desc: "ኤቢሲ ዳይፐር", img: "./ABC 5.jpg" },     
+      { id: "ABC5", name: "ABC Dayper-5ቁጥር", price: 500, desc: "ኤቢሲ ዳይፐር", img: "./ABC 5.jpg" },
     ];
 
-    /*******
+    /***
      * CART MANAGEMENT
-     *******/
+     ***/
     let cart = loadCart();
 
     function formatPrice(n) { return n.toLocaleString() + " Birr"; }
@@ -449,7 +485,7 @@
     const totalEl = document.getElementById("total");
 
     function renderMenu() {
-      menuEl.innerHTML = MENU.map(item => ` 
+      menuEl.innerHTML = MENU.map(item => `
         <div class="card">
           <img src="${item.img}" alt="${item.name}" loading="lazy">
           <div class="meta">
@@ -458,15 +494,17 @@
               <div class="desc">${item.desc}</div>
             </div>
             <div class="price">${formatPrice(item.price)}</div>
-          </div>
+            </div>
           <div class="actions">
             <input class="qty-input" id="qty_${item.id}" type="number" value="1" min="1" />
             <button style="background-color:green;" class="btn" onclick="addToCart('${item.id}', 1)">Add to Bag</button>
           </div>
         </div>
       `).join("");
+      // --- START: Added for Animation (Trigger visibility check after rendering) ---
+      setupIntersectionObserver();
+      // --- END: Added for Animation ---
     }
-
     function findMenuItem(id) { return MENU.find(m => m.id === id); }
     function addToCart(itemId, qty) {
       const item = findMenuItem(itemId);
@@ -482,11 +520,11 @@
     function clearCart() { cart = []; saveCart(); renderCart(); }
     function computeTotals() { const subtotal = cart.reduce((s, i) => s + (Number(i.price) * Number(i.qty)), 0); const delivery = subtotal >= DELIVERY_FREE_THRESHOLD && subtotal > 0 ? 0 : (subtotal === 0 ? 0 : DEFAULT_DELIVERY_FEE); const total = subtotal + delivery; return { subtotal, delivery, total }; }
     function renderCart() {
-      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your cart is empty — add tasty food from the menu.</div>'; }
+      if (cart.length === 0) { cartListEl.innerHTML = '<div class="empty">Your Bag is empty — add favorite item from the menu.</div>'; }
       else {
         cartListEl.innerHTML = cart.map(ci => {
           const img = (findMenuItem(ci.id) || {}).img || "";
-          return `<div class="cart-item"><img src="${img}" alt="${ci.name}"><div class="ci-body"><div class="ci-name">${ci.name}</div><div class="small">${formatPrice(ci.price)} × ${ci.qty} = ${formatPrice(ci.price * ci.qty)}</div></div><div class="ci-controls"><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty - 1})">−</button><input class="qty-input" type="number" min="1" value="${ci.qty}" onchange="updateQty('${ci.id}', this.value)" /><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty + 1})">+</button><button class="btn secondary" onclick="removeFromCart('${ci.id}')">Remove</button></div></div>`
+          return `<div class="cart-item"><img src="${img}" alt="${ci.name}"><div class="ci-body"><div class="ci-name">${ci.name}</div><div class="small">${formatPrice(ci.price)} × ${ci.qty} = ${formatPrice(ci.price * ci.qty)}</div></div><div class="ci-controls"><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty - 1})">-</button><input class="qty-input" type="number" min="1" value="${ci.qty}" onchange="updateQty('${ci.id}', this.value)" /><button class="btn secondary" onclick="updateQty('${ci.id}', ${ci.qty + 1})">+</button><button class="btn secondary" onclick="removeFromCart('${ci.id}')">Remove</button></div></div>`;
         }).join("");
       }
       const totals = computeTotals();
@@ -513,19 +551,18 @@
     }
 
     // TELEGRAM CONFIG
-    const TELEGRAM_BOT_TOKEN = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8";  // <--- replace with your bot token
-    const TELEGRAM_CHAT_ID = "5335234629";      // <--- replace with your chat ID
-
+    const TELEGRAM_BOT_TOKEN = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // <--- replace with your bot token
+    const TELEGRAM_CHAT_ID = "5335234629";// <--- replace with your chat ID
     async function sendOrderTelegram() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
-    
+
 
       if (cart.length === 0) { alert("Your Bag is empty. Add products before sending the order."); return; }
       if (!name || !phone) { alert("Please enter your name and phone before send the order."); return; }
-
       const message = buildOrderText();
-      const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(message)}`; try {
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
+      try {
         const res = await fetch(url);
         if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
@@ -538,11 +575,54 @@
     document.getElementById("copyOrderBtn").addEventListener("click", copyOrder);
     document.getElementById("clearCartBtn").addEventListener("click", () => { if (confirm("Clear the cart?")) clearCart(); });
 
+    // --- START: Added for Animation (Intersection Observer) ---
+    function setupIntersectionObserver() {
+      // Check if IntersectionObserver is supported
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null, // relative to the viewport
+          rootMargin: '0px',
+          threshold: 0.1 // Trigger when 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            // When the element enters the viewport
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              // Stop observing once it's visible to save resources
+              observer.unobserve(entry.target);
+            }
+            // Note: Per your request ("when I get back, it goes away"), 
+            // you might expect to remove 'in-view' when !entry.isIntersecting.
+            // However, a typical scroll-reveal animation keeps the element visible once shown.
+            // The current setup (using unobserve) implements a one-time fade-in on scroll.
+            // The 'in-view' class is added for one-time animation.
+          });
+        }, observerOptions);
+
+        // Target all menu cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+          observer.observe(card);
+        });
+      } else {
+        // Fallback for browsers without Intersection Observer: just show the elements
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        });
+      }
+    }
+    // --- END: Added for Animation ---
+
+
     renderMenu();
     renderCart();
     window.addToCart = addToCart;
     window.updateQty = updateQty;
     window.removeFromCart = removeFromCart;
+    // setupIntersectionObserver is called inside renderMenu
   </script>
 </body>
 
