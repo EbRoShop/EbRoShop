@@ -13,7 +13,7 @@
         justify-content:center;
         align-items:center;
         height:80vh;
-        animation: fadeOut 2s ease 2s forwards;
+        animation: fadeOut 2s ease 5s forwards;
         text-align: center;
     }
 
@@ -115,7 +115,7 @@ keyframes fadeIn{
 .from-top {
     opacity: 0;
     transform: translateY(-80px);
-    animation: slideDown 1.2s ease-out forwards;
+    animation: slideDown 3s ease-out forwards;
 }
 
 @keyframes slideDown {
@@ -128,7 +128,7 @@ keyframes fadeIn{
 .from-bottom {
     opacity: 0;
     transform: translateY(80px);
-    animation: slideUp 2s ease-out forwards;
+    animation: slideUp 5s ease-out forwards;
 }
 
 @keyframes slideUp {
@@ -179,7 +179,7 @@ keyframes fadeIn{
     // redirect to home page after animation ends
     setTimeout(function(){
         window.location.href = "home.html";
-    }, 4000);
+    }, 5000);
 </script>
 
 </body>
