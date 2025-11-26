@@ -7,37 +7,20 @@
 
 <style>
     body{
-        margin:0;
-        background:#101e3c; /* Dark blue background */
+         margin-top: 100px;
+        background:#04143a; /* Dark blue background */
         display:flex;
         justify-content:center;
         align-items:center;
         height:50vh;
         animation: fadeOut 2s ease 2s forwards;
+        text-align: center;
+        
     }
 
 /* CSS Variables for easy color adjustments */
-:root {
-/* Navy Blue Background */
---dark-blue: #0d1e37;
-/* Gold Color for logo and text accents */
---gold: #c9a44c;
- /* White Color for main text */
- --white:#ffffff;
-  /* --- Global Setup --- */
-}
-body   {
-        background-color: var(--dark-blue);
-        display: flex;
-        justify-content: center;
-        text-align: center;
- /* Ensures the content is centered vertically and horizontally */
-        height: 100vh;
-        margin: 0;
-/* Using a clean, standard sans-serif font for the main text */
-        font-family: Arial, sans-serif;
-        color: var(--white);
-        }
+
+
 .logo-container {
                  text-align: center;
                  padding: 20px;
@@ -139,36 +122,60 @@ body   {
     @keyframes fadeOut{
         to{opacity:0;}
     }
+
+ /* Animation setup */
+    .animate {
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* specific directions */
+    .from-bottom {
+      transform: translateY(60px);
+    }
+
+    .from-right {
+      transform: translateX(80px);
+    }
+
+    .from-left {
+      transform: translateX(-80px);
+    }
+
 </style>
 
 </head>
 <body>
     <div style=" text-align: center;
                  padding: 20px;" class="logo-container">
-     <div class="symbol">
-       <div  class="gold-shape top-triangle"></div>
-       <div  class="gold-shape petal petal-left"></div>
-       <div  class="gold-shape petal petal-right"></div>
-     </div>
+     <img src="./000000.jpg" alt="00000" width="100px" height="100px">
+      
      <h1 style=" font-size: 50px;
              font-weight: 700;
              letter-spacing: 5px;
              margin: 0;
-             line-height: 1; font-family: 'Times New Roman', Times, serif; color:antiquewhite" class="main-text">EBRO</h1>
-     <p style="  font-size: 18px;
+             line-height: 1;  color:#d9cfcf; font-family:'Courier New', Courier, monospace; font-style:unset;" class="main-text">EBRO</h1>
+       <p style="font-size: 18px;
      font-weight: 400;
      text-transform: uppercase;
      color: var(--gold);
      margin-top: 10px;
      padding-bottom: 5px;
      position: relative;
-     letter-spacing: 2px;   " class="sub-text">SHOP</p>
+     letter-spacing: 2px; color: #c9a44c;">SHOP</p>
+
+
     <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
            font-size: 25px;
            color: var(--gold);
-           margin-top: 15px;
-           font-weight: 100;" class="tagline">Online platform</p>
-    
+           margin-top: 10px;
+           margin: 0;
+           font-weight: 100; color: #c9a44c;" class="tagline">Online platform</p> 
 </div>
 
   
