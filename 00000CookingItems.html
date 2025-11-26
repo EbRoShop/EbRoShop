@@ -509,7 +509,7 @@
 
     // TELEGRAM CONFIG
     const TELEGRAM_BOT_TOKEN = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8";  // <--- replace with your bot token
-    const TELEGRAM_CHAT_ID = "5335234629";      // <--- replace with your chat ID
+    const TELEGRAM_CHAT_ID = "7804998693";      // <--- replace with your chat ID
 
     async function sendOrderTelegram() {
       const name = document.getElementById("custName").value.trim();
@@ -520,7 +520,7 @@
       if (!name || !phone) { alert("Please enter your name and phone before send the order."); return; }
 
       const message = buildOrderText();
-      const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(message)}`; try {
+      const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=7804998693&text=${encodeURIComponent(message)}`; try {
         const res = await fetch(url);
         if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
         else { alert("Failed to send order, please try agin."); }
