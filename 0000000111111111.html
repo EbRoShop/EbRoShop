@@ -563,7 +563,7 @@
       const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
-        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳                    🈯ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿                             🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                           🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
+        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳                                     🈯ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿                                    🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                           🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
