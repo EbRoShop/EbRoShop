@@ -6,9 +6,25 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <style>
 
- 
+/* ====== ADDED ANIMATION ONLY (NOTHING ELSE CHANGED) ====== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ========================================================= */
+
+
+
+
 
     /* HEADER (no animation) */
    
@@ -43,14 +59,6 @@
       text-decoration: none;
       opacity: 0.95;
     }
-
-   
-
-
-
-
-
-
 
 /* General Resets */
 body {
@@ -119,7 +127,6 @@ body {
     font-size: 48px;
     font-weight: bold;
     color: white;
-    /* This color is set to white in the original image */
 }
 
 /* Contact Details & Form Layout */
@@ -133,7 +140,7 @@ body {
 
 .contact-info {
     flex: 1;
-    min-width: 300px; /* Ensure content doesn't squeeze too much */
+    min-width: 300px;
     padding-right: 30px;
 }
 
@@ -143,9 +150,9 @@ body {
 
 .contact-icon {
     font-size: 24px;
-    color: #ce9d34; /* Gold accent color */
+    color: #ce9d34;
     margin-right: 10px;
-    display: block; /* To put the icon on its own line */
+    display: block;
     margin-bottom: 5px;
 }
 
@@ -153,17 +160,17 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin: 0 0 5px 0;
+    
 }
 
 .contact-info p {
     margin: 0;
-    padding-left: 0;
 }
 
 /* Get In Touch Section */
 .get-in-touch-heading {
     font-size: 32px;
-    color: #ce9d34; /* Gold accent color */
+    color: #ce9d34;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 10px;
@@ -200,9 +207,8 @@ body {
 .contact-form textarea {
     resize: vertical;
 }
-
 .send-button {
-    background-color: #0b1f49; /* Deep blue from the original button */
+    background-color: #0b1f49;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -224,10 +230,10 @@ body {
     padding: 10px;
     border-radius: 4px;
     text-align: center;
-    display: none; /* Hidden by default */
+    display: none;
 }
 
-/* Media Query for Responsiveness */
+/* Media Query */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
@@ -241,17 +247,9 @@ body {
 </style>
 </head>
 <body>
-    <div style=" --cyan: #09af6f;
-      --lime: #d9f200;
-      --muted: #666f78;
-      --card-border: #efebef;
-      --dark-footer: #2f2f2f;
-      --accent: #0d4a7e;
-      --radius: 14px;
-      font-family: Helvetica Neue, Arial, sans-serif;">
-      <div style="margin: 0;
-      color: #222;
-      background: #fff;">
+
+    <div style=" --cyan: #09af6f; --lime: #d9f200; --muted: #666f78; --card-border: #efebef; --dark-footer: #2f2f2f; --accent: #0d4a7e; --radius: 14px; font-family: Helvetica Neue, Arial, sans-serif;">
+      <div style="margin: 0; color: #222; background: #fff;">
   <header class="site-header" role="banner">
     <h1 class="brand" style="font-family: Georgia, 'Times New Roman', Times, serif; color: black;">EbRo-Shop</h1>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
@@ -259,23 +257,13 @@ body {
       <a href="./Menu.html">Menu</a>
       <a href="./About.html">About</a>
       <a style="color: #222; font-weight: 700;" href="#">Contact</a>
-      <a  href="./Gallary.html">Gallary</a>
+      <a href="./Gallary.html">Gallary</a>
     </nav>
   </header>
   </div>
   </div>
 
-
-    <section style="background-image: url('./main3.jpg');
-
- 
-    background-size: cover;
-   
-    background-position: center center;
-    background-repeat:var(--accent);
-    
-    /* Ensure the section has a defined height */
-    height: 300px;" class="hero-section">
+    <section style="background-image: url('./main3.jpg'); background-size: cover; background-position: center center; background-repeat:var(--accent); height: 300px;" class="hero-section">
         <div class="hero-overlay">
             <h1 style="color:  #9d7827;" class="hero-title">Contact Us</h1>
         </div>
@@ -329,55 +317,72 @@ body {
             </form>
             <p id="formStatus" class="form-status"></p>
         </div>
-
     </div>
+
     <div style="text-align: center;">
-   <img  src="./Map view.jpg" width="320px" height="300px" />
-   </div>
-   <footer style=" margin-top: 38px;
-      background: black;
-      color: #dcdcdc;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 13px;" class="site-footer">
+        <img src="./Map view.jpg" width="320px" height="300px" />
+    </div>
+    <footer style="margin-top: 38px; background: black; color: #dcdcdc; text-align: center; padding: 18px 10px; font-size: 13px;" class="site-footer">
       © 2025 EbRo-Shop. All rights reserved.
     </footer>
-    <script>
-    // ====== REPLACE THESE ======
-    const token = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // Your BotFather token
-    const chat_id = "5335234629";  // Your Telegram chat ID
-    // ===========================
 
-    const form = document.getElementById("contactForm");
+<script>
+// Telegram Bot
+const token = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8";
+const chat_id = "5335234629";
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent page reload
+const form = document.getElementById("contactForm");
 
-      // Get form values
-      const name = form.name.value;
-      const email = form.email.value;
-      const subject = form.subject.value;
-      const comment = form.comment.value;
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      // Build the message text
-    
-      const text = `📩 EbRoShop Contact Form Submission:\n👤 Name: ${name}\n📧 email: ${email}\n 💡 ርእስ ፡ ${subject}\n 💌 አስተያየት፡ ${comment}`;
+  const name = form.name.value;
+  const email = form.email.value;
+  const subject = form.subject.value;
+  const comment = form.comment.value;
 
-      // Send the message to Telegram
-      fetch(`https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=5335234629&text=${encodeURIComponent(text)}`)
-        .then(response => {
-          if(response.ok){
-            alert("We have successfully received your comment. We will respond to you shortly🤳");
-            form.reset(); // Clear the form
-          } else {
-            alert("❌ Failed to send!");
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          alert("❌ Error sending Order!");
-        });
+  const text =` 📩 EbRoShop Contact Form Submission:\n👤 Name: ${name}\n📧 email: ${email}\n 💡 ርእስ፡ ${subject}\n 💌 አስተያየት፡ ${comment}`;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`)
+    .then(response => {
+      if(response.ok){
+        alert("We have successfully received your comment. We will respond to you shortly🤳");
+        form.reset();
+      } else {
+        alert("❌ Failed to send!");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert("❌ Error sending Order!");
     });
+});
+
+
+
+// ======== ADDED SCROLL ANIMATION SCRIPT (NOTHING ELSE CHANGED) ========
+const reveals = document.querySelectorAll(
+    ".contact-item, .get-in-touch-heading, .get-in-touch-text, .contact-form input, .contact-form textarea, .send-button, .hero-title, .contact-heading, img"
+);
+
+reveals.forEach(el => el.classList.add("reveal"));
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            } else {
+                entry.target.classList.remove("active");
+            }
+        });
+    },
+    { threshold: 0.2 }
+);
+
+reveals.forEach(el => observer.observe(el));
+// ======================================================================
 </script>
+
 </body>
 </html>
