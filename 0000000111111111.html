@@ -404,8 +404,8 @@
        <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
        <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
                 ይላኩልን።
-                CBE➡<b style="color: rgb(255, 255, 255); background-color: #def112;">1000617484793</b> Hayru Dejene
-                Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #def112;">0970130755</b> Hayiru</li>
+                CBE➡<b style="color: rgb(255, 255, 255); background-color: #000000;">1000617484793</b> Hayru Dejene
+                Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #000000;">0970130755</b> Hayiru</li>
               <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም
                 screenshot ይላኩልን። <a href="https://t.me/ebhayru55">t.me/EbRo-Shop</a></li>
               <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b
@@ -563,7 +563,7 @@
       const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
-        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳      🈯ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿           🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።       🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
+        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳                    🈯ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿                             🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                           🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
