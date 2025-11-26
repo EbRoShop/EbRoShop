@@ -15,71 +15,58 @@
         height:80vh;
         animation: fadeOut 2s ease 2s forwards;
         text-align: center;
-        
     }
 
-/* CSS Variables for easy color adjustments */
-
-
 .logo-container {
-                 text-align: center;
-                 padding: 20px;
-              }
+    text-align: center;
+    padding: 20px;
+}
+
 /* --- Logo Symbol (Exact Replication) --- */
 .symbol {
-            width: 150px; /* Overall size */
-            height: 150px;
-            margin: 0 auto 30px;
-            position: relative;
-        }
- /* Base class for all gold sh*/       
- .gold-shape {         
-          position:absolute;          
-         background-color: #c9a44c;          
-          }
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.gold-shape {         
+    position:absolute;          
+    background-color: #c9a44c;          
+}
 
-
-/* 1. The top Triangular Shape */
 .top-triangle {
-/* Using clip-path to create the triangle with sharp points */
-              width: 80px;
-              height: 70px;
-              clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-              top: 0;
-              left: 50%;
-               transform: translateX(-50%);
-              
-               }
-/* 2. & 3. The two curved, teardrop/petal shapes */
+    width: 80px;
+    height: 70px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .petal {
-       width: 70px;
-       height: 80px;
-/* Creates the rounded bottom and curved sides */
-       border-radius: 0 0 50% 50%;
-       bottom: 0;
-       }   
+    width: 70px;
+    height: 80px;
+    border-radius: 0 0 50% 50%;
+    bottom: 0;
+}   
 
 .petal-left {
-          left: 20px;
-    /* Rotate to match the angle of the original image */
-          transform: rotate(-35deg);
-           }
+    left: 20px;
+    transform: rotate(-35deg);
+}
 .petal-right {
-        right: 20px;
-/* Rotate to match the angle of the original image */
-        transform: rotate(35deg);
-            }
-                     /* --- Text Styling (ALULA -> EBRO) --- */
-         .main-text {
-             font-size: 50px;
-             font-weight: 700;
-             letter-spacing: 5px;
-             margin: 0;
-             line-height: 1;
-         }
+    right: 20px;
+    transform: rotate(35deg);
+}
 
+.main-text {
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 0;
+    line-height: 1;
+}
 
-/* --- Text Styling (HOSPITAL -> SHOP) --- */
 .sub-text {
      font-size: 18px;
      font-weight: 400;
@@ -90,101 +77,109 @@
      position: relative;
      letter-spacing: 2px;      
 }
-       /* Thin gold underline */
- .sub-text::after {
-           content: '';
-           display: block;
-           width: 50px;
-           height: 1px;
-           background-color: var(--gold);
-           margin: 5px auto 0;
-       }
-       /* --- Text Styling (Prestige Care) --- */
-       .tagline {
-           /* Using a common script/cursive font for approximation of the original font */
-           font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-           font-size: 25px;
-           color: var(--gold);
-           margin-top: 15px;
-           font-weight: 100;
-       }
+.sub-text::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 5px auto 0;
+}
 
-    .logo{
-        text-align:center;
-        color:white;
-        animation: fadeIn 1.5s ease;
-    }
-    keyframes fadeIn{
-        from{opacity:0; transform:scale(0.8);}
-        to{opacity:1; transform:scale(1);}
-    }
+.tagline {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 25px;
+    color: var(--gold);
+    margin-top: 15px;
+    font-weight: 100;
+}
 
-    @keyframes fadeOut{
-        to{opacity:0;}
-    }
+.logo{
+    text-align:center;
+    color:white;
+    animation: fadeIn 1.5s ease;
+}
+keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
 
- /* Animation setup */
-    .animate {
-      opacity: 0;
-      transition: all 0.8s ease-out;
-    }
+@keyframes fadeOut{
+    to{opacity:0;}
+}
 
-    .animate.show {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
+/* ----------------------- */
+/*   NEW ANIMATION CSS     */
+/* ----------------------- */
 
-    /* specific directions */
-    .from-bottom {
-      transform: translateY(60px);
-    }
+.from-top {
+    opacity: 0;
+    transform: translateY(-80px);
+    animation: slideDown 1.2s ease-out forwards;
+}
 
-    .from-right {
-      transform: translateX(80px);
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .from-left {
-      transform: translateX(-80px);
+.from-bottom {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: slideUp 2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
 </style>
-
 </head>
 <body>
-    <div style=" text-align: center;
-                 padding: 20px;" class="logo-container">
-     <img src="./000000.jpg" alt="00000" width="200px" height="200px">
+    <div style=" text-align: center; padding: 20px;" class="logo-container">
+
+     <!-- LOGO IMAGE – comes from top -->
+     <img src="./000000.jpg" alt="00000" width="200px" height="200px" class="from-top">
       
+     <!-- EBRO – comes from bottom -->
      <h1 style=" font-size: 80px;
              font-weight: 700;
              letter-spacing: 5px;
              margin: 0;
-             line-height: 1;  color:#d9cfcf; font-family:'Courier New', Courier, monospace; font-style:unset;" class="main-text">EBRO</h1>
-       <p style="font-size: 30px;
-     font-weight: 400;
-     text-transform: uppercase;
-     color: var(--gold);
-     margin-top: 10px;
-     padding-bottom: 5px;
-     position: relative;
-     letter-spacing: 2px; color: #c9a44c;">SHOP</p>
+             line-height: 1;  color:#d9cfcf; font-family:'Courier New', Courier, monospace; font-style:unset;"
+             class="main-text from-bottom">EBRO</h1>
 
+     <!-- SHOP – comes from bottom -->
+     <p style="font-size: 30px;
+         font-weight: 400;
+         text-transform: uppercase;
+         color: var(--gold);
+         margin-top: 10px;
+         padding-bottom: 5px;
+         position: relative;
+         letter-spacing: 2px; color: #c9a44c;"
+         class="from-bottom">SHOP</p>
 
+    <!-- Online platform – also from bottom -->
     <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
            font-size: 25px;
            color: var(--gold);
            margin-top: 10px;
            margin: 0;
-           font-weight: 100; color: #c9a44c;" class="tagline">Online platform</p> 
+           font-weight: 100; color: #c9a44c;"
+           class="tagline from-bottom">Online platform</p> 
 </div>
 
-  
-   
 <script>
     // redirect to home page after animation ends
     setTimeout(function(){
-        window.location.href = "home.html"; // your homepage
-    }, 3000); // 3 seconds
+        window.location.href = "home.html";
+    }, 4000);
 </script>
 
 </body>
