@@ -397,22 +397,24 @@
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
             </select>
-            <ul class="info-list" aria-hidden="false">
-              <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙም።</li>
-              <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
-              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
+
+        <ul style="text-align: left;" class="info-list" aria-hidden="false">
+              <li>🔔ለትዕዛዝዎ ክፍያ ባንክ ወይም ቴሌብር ተጠቅመዋል?</li>
+              <details style="background: #bdbbbb; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
+      <summary><b>ለክፍያ transfer ከተጠቀሙ ይህን ጠቅ ያርጉ!</b></summary>
+       <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
+       <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
                 ይላኩልን።
-                CBE➡<b style="color: rgb(255, 255, 255); background-color: #494747;">1000617484793</b> Hayru Dejene
-                Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #5a5959;">0970130755</b> Hayiru</li>
+                CBE➡<b style="color: rgb(255, 255, 255); background-color: #000000;">1000617484793</b> Hayru Dejene
+                Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #000000;">0970130755</b> Hayiru</li>
               <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም
                 screenshot ይላኩልን። <a href="https://t.me/ebhayru55">t.me/EbRo-Shop</a></li>
               <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b
                   style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም
                 መላክ አለባችሁ።</li>
-              <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
-              <li> ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿</li>
-              <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li>
-            </ul>
+    </details>
+         </ul>
+
             <div class="actions-row">
               <button class="btn" id="sendOrderBtn">Send Order</button>
               <button style="background-color: rgb(26, 127, 136);" class="btn secondary" id="copyOrderBtn">Copy
@@ -564,7 +566,7 @@
       const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=7804998693&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
-        if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳"); clearCart(); }
+        if (res.ok) { alert("🛍 ትዕዛዝዎ በተሳካ ሁኔታ ተልኳል✔                                                     ©ምርጫችሁ ስላደረጋቹን እናመሰግናለን።                                                        🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                                                       🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
       } catch (e) { alert("Error sending order: " + e.message); }
     }
