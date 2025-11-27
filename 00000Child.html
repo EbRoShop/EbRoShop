@@ -566,9 +566,9 @@
       const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=7804998693&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
-        if (res.ok) { alert("🛍 ትዕዛዝዎ በተሳካ ሁኔታ ተልኳል✔                                                     ©ምርጫችሁ ስላደረጋቹን እናመሰግናለን።                                                        🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                                                       🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
+        if (res.ok) { alert("🛍 ትዕዛዝዎ በተሳካ ሁኔታ ተልኳል✔                                                    🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                                                         ©ምርጫችሁ ስላደረጋቹን እናመሰግናለን።                                                      🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }
         else { alert("🔴Failed to send order, please try again."); }
-      } catch (e) { alert("Error sending order: " + e.message); }
+      } catch (e) { alert("Error sending order: " + e.message); }  
     }
 
     async function copyOrder() { const text = buildOrderText(); try { await navigator.clipboard.writeText(text); alert("Order copied to clipboard — you can paste it into SMS/WhatsApp/Telegram."); } catch (e) { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); alert("Order copied to clipboard (fallback)."); } }
