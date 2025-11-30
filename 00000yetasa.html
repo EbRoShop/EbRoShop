@@ -556,8 +556,8 @@
       const phone = document.getElementById("custPhone").value.trim();
 
 
-      if (cart.length === 0) { alert("Your Bag is empty. Add products before sending the order."); return; }
-      if (!name || !phone) { alert("Please enter your name and phone before send the order."); return; }
+      if (cart.length === 0) { alert("🔔ይቅርታ, ቦርሳዎ ባዶ ነው፤ ስለዚህ ከመላክዎ በፊት ሚፈለጉት እቃ ወደ ቦርሳዎ ያስገቡ!"); return; }
+      if (!name || !phone) { alert("🔔ይቅርታ, ትዕዛዝዎን ከመልክዎ በፊት ስምና ስልክ ቁጥር ያስገቡ!"); return; }
       const message = buildOrderText();
       const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=7804998693&text=${encodeURIComponent(message)}`;
       try {
