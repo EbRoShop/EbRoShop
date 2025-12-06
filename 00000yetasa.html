@@ -392,7 +392,7 @@
               </div>
             </div>
 
-
+      
             <select style="background-color: #6b6b6b; color: #faf0ea;" id="paymentMethod">
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
@@ -446,20 +446,29 @@
     const DELIVERY_FREE_THRESHOLD = 0;
     const DEFAULT_DELIVERY_FEE = 50;
     const MENU = [
-      { id: "Tesfa1", name: "ተስፋዬ የለውዝ ቅቤ-1kg", price: 700, desc: "Tesfaye peanut", img: "./Tesfaye Butter 1kg.jpeg" },
+      { id: "Qudewarice", name: "Qudewa የእቃው ሩዝ", price: 400, desc: "Qudewa rice", img: "./Qudwa rice.jpeg" },
+      { id: "Asadrice", name: "Asad የእቃው ሩዝ", price: 380, desc: "Asad rice", img: "./Asad rice.jpeg" },
+
+      { id: "NutellaC", name: "Nutella chocolate-400g", price: 400, desc: "ኑቴላ ቸኮሌ", img: "./Nutella checolate 400g.jpeg" },
+      { id: "Tesfa1", name: "ተስፋዬ የለውዝ ቅቤ-1kg", price: 650, desc: "Tesfaye peanut", img: "./Tesfaye Butter 1kg.jpeg" },
       { id: "Tesfa5", name: "ተስፋዬ የለውዝ ቅቤ-500g", price: 350, desc: "Tesfaye peanut", img: "./Tesfaye Butter 500g.png" },
-      { id: "Roza1", name: "ሮዛ የለውዝ ቅቤ-1kg", price: 650, desc: "Roza peanut", img: "./Roza Butter 1kg.jpeg" },
-      { id: "Roza5", name: "ሮዛ የለውዝ ቅቤ-500g", price: 300, desc: "Roza peanut", img: "./Roza Butter 500g.jpeg" },
-      { id: "Vimto", name: "Vimto", price: 900, desc: "ቪንቶ", img: "./Vimto.jpeg" },
-      { id: "Soya sauce", name: "Soya sauce", price: 300, desc: "ሶያ ሶስ", img: "./Soya sauce.jpeg" },
-      { id: "Jam", name: "Jam", price: 250, desc: "ጃም", img: "./jam.jpg" },
-      { id: "Sardins", name: "Sardins", price: 550, desc: "ሳርዲን", img: "./Sardines.jpeg" },
-      { id: "Canned Beans", name: "ፉል የጣሳ", price: 250, desc: "Canned Beans", img: "./Full yetasa.jpg" },
-      { id: "Pinapples", name: "አናናስ የጣሳው", price: 250, desc: "Pinapples", img: "./Ananas yetasaw.jpg" },
-      { id: "Mayo-Nice", name: "Mayo-nice", price: 400, desc: "ማዮ ናይዝ", img: "./Mayo-nice.jpg" },
-      { id: "Tuna", name: "ቱና", price: 250, desc: "Tuna", img: "./Tuna.jpeg" },
-      { id: "Nescafe2", name: "Nescafe-200g", price: 350, desc: "የተፈጨ ቡና", img: "./Nescafe 200g.jpeg" },
-      { id: "Nescafe1", name: "Nescafe-100g", price: 200, desc: "የተፈጨ ቡና", img: "./Nescafe 100g.jpeg" },
+      { id: "Roza1", name: "ሮዛ የለውዝ ቅቤ-1kg", price: 600, desc: "Roza peanut", img: "./Roza Butter 1kg.jpeg" },
+      { id: "Roza5", name: "ሮዛ የለውዝ ቅቤ-500g", price: 320, desc: "Roza peanut", img: "./Roza Butter 500g.jpeg" },
+
+      { id: "Vimto", name: "Vimto", price: 300, desc: "ቪንቶ", img: "./Vimto.jpeg" },
+      { id: "Dark Soya sauce", name: "Dark Soya sauce", price: 350, desc: "ሶያ ሶስ", img: "./Dark soya sose.jpg" },
+      { id: "light Soya sauce", name: "light Soya sauce", price: 330, desc: "ሶያ ሶስ", img: "./light soya sose.jpeg" },
+      { id: "AlJam", name: "Al Berekah Jam", price: 350, desc: "ጃም", img: "./Al Berekah jam.jpg" },
+      { id: "Sardins", name: "Sardins", price: 220, desc: "ሳርዲን", img: "./Sardines.jpeg" },
+      { id: "Full Modams", name: "ፉል የጣሳ", price: 180, desc: "Full modams", img: "./Full modams.jpeg" },
+      { id: "Pinapples", name: "አናናስ የጣሳው", price: 320, desc: "Pinapples", img: "./Ananas yetasaw.jpg" },
+      { id: "Herman mayonniase1", name: "Herman mayonniase-1kg", price: 800, desc: "ማዮ ናይዝ", img: "./Herman mayo 1kg.png" },
+      { id: "Herman mayonniase3", name: "Herman mayonniase-350g", price: 350, desc: "ማዮ ናይዝ", img: "./Herman mayo 350g.png" },
+      { id: "Tuna", name: "ቱና", price: 200, desc: "Tuna", img: "./Tuna.jpeg" },
+      { id: "Morecoffee", name: "More coffee-100g", price: 600, desc: "የተፈጨ ቡና", img: "./More coffee 100g.jpg" },
+      { id: "Nescafe1", name: "Nece coffee-100g", price: 700, desc: "የተፈጨ ቡና", img: "./Nece coffee 100g.png" },
+      { id: "Nescafe5", name: "Nece coffee-50g", price: 500, desc: "የተፈጨ ቡና", img: "./Nece coffee 50g.jpg" },
+
       { id: "Testies", name: "Testy soya", price: 130, desc: "ቴስቲ ሶያ", img: "./TestySoya.jpeg" },
       { id: "Sosi", name: "Sossi soya", price: 150, desc: "ሶሲ ሶያ", img: "./Sosisoya.jpeg" },
       { id: "Qolo", name: "ቆሎ", price: 800, desc: "Qolo", img: "./Qolo.jpeg" },
