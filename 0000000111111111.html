@@ -397,10 +397,10 @@
               <option value="💵Cash">Cash</option>
               <option value="🏧Transfer">Transfer</option>
             </select>
-            <ul class="info-list" aria-hidden="false">
-              <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙም።</li>
+            <ul style="text-align: left;" class="info-list" aria-hidden="false">
+              <li>🔔ለትዕዛዝዎ ክፍያ ባንክ ወይም ቴሌብር ተጠቅመዋል?</li>
               <details style="background: #bdbbbb; border: 1px solid #ddd; border-radius: 8px; margin: 12px 0; padding: 15px;">
-      <summary><b>ለትዕዛዝዎ Transfer(ባንክ ወይም ቴሌብር) ተጠቅመዋል?</b></summary>
+      <summary><b>ለክፍያ transfer ከተጠቀሙ ይህን ጠቅ ያርጉ!</b></summary>
        <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
        <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት
                 ይላኩልን።
@@ -412,7 +412,9 @@
                   style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም
                 መላክ አለባችሁ።</li>
     </details>
-            <div class="actions-row">
+         </ul>
+
+            <div style="text-align: left;" class="actions-row">
               <button class="btn" id="sendOrderBtn">Send Order</button>
               <button style="background-color: rgb(26, 127, 136);" class="btn secondary" id="copyOrderBtn">Copy
                 Order</button>
@@ -551,7 +553,7 @@
 
     // TELEGRAM CONFIG
     const TELEGRAM_BOT_TOKEN = "8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8"; // <--- replace with your bot token
-    const TELEGRAM_CHAT_ID = "5335234629";// <--- replace with your chat ID
+    const TELEGRAM_CHAT_ID = "7804998693";// <--- replace with your chat ID
     async function sendOrderTelegram() {
       const name = document.getElementById("custName").value.trim();
       const phone = document.getElementById("custPhone").value.trim();
@@ -560,7 +562,7 @@
       if (cart.length === 0) { alert("Your Bag is empty. Add products before sending the order."); return; }
       if (!name || !phone) { alert("Please enter your name and phone before send the order."); return; }
       const message = buildOrderText();
-      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
+      const url = `https://api.telegram.org/bot8548479005:AAF1cwsYPz8xC_P3v8h9onWGsBwxEZx0iP8/sendMessage?chat_id=7804998693&text=${encodeURIComponent(message)}`;
       try {
         const res = await fetch(url);
         if (res.ok) { alert("🛍 Order sent successfully! We will call you right now🤳                                     🈯ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿                                    🕊ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።                           🗺አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።"); clearCart(); }

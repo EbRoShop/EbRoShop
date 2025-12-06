@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EbroShop Design - Exact Logo Replication</title>
+<style>
+
+/* CSS Variables for easy color adjustments */
+:root {
+/* Navy Blue Background */
+--dark-blue: #0d1e37;
+/* Gold Color for logo and text accents */
+--gold: #c9a44c;
+ /* White Color for main text */
+ --white:#ffffff;
+  /* --- Global Setup --- */
+}
+body   {
+        background-color: var(--dark-blue);
+        display: flex;
+        justify-content: center;
+        text-align: center;
+ /* Ensures the content is centered vertically and horizontally */
+        height: 100vh;
+        margin: 0;
+/* Using a clean, standard sans-serif font for the main text */
+        font-family: Arial, sans-serif;
+        color: var(--white);
+        }
+.logo-container {
+                 text-align: center;
+                 padding: 20px;
+              }
+/* --- Logo Symbol (Exact Replication) --- */
+.symbol {
+            width: 150px; /* Overall size */
+            height: 150px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+ /* Base class for all gold sh*/       
+ .gold-shape {         
+          position:absolute;          
+         background-color: #c9a44c;          
+          }
+
+
+/* 1. The top Triangular Shape */
+.top-triangle {
+/* Using clip-path to create the triangle with sharp points */
+              width: 80px;
+              height: 70px;
+              clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+              top: 0;
+              left: 50%;
+               transform: translateX(-50%);
+              
+               }
+/* 2. & 3. The two curved, teardrop/petal shapes */
+.petal {
+       width: 70px;
+       height: 80px;
+/* Creates the rounded bottom and curved sides */
+       border-radius: 0 0 50% 50%;
+       bottom: 0;
+       }   
+
+.petal-left {
+          left: 20px;
+    /* Rotate to match the angle of the original image */
+          transform: rotate(-35deg);
+           }
+.petal-right {
+        right: 20px;
+/* Rotate to match the angle of the original image */
+        transform: rotate(35deg);
+            }
+                     /* --- Text Styling (ALULA -> EBRO) --- */
+         .main-text {
+             font-size: 50px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1;
+         }
+
+
+/* --- Text Styling (HOSPITAL -> SHOP) --- */
+.sub-text {
+     font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+     color: var(--gold);
+     margin-top: 10px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px;      
+}
+       /* Thin gold underline */
+ .sub-text::after {
+           content: '';
+           display: block;
+           width: 50px;
+           height: 1px;
+           background-color: var(--gold);
+           margin: 5px auto 0;
+       }
+       /* --- Text Styling (Prestige Care) --- */
+       .tagline {
+           /* Using a common script/cursive font for approximation of the original font */
+           font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: var(--gold);
+           margin-top: 15px;
+           font-weight: 100;
+       }
+</style>
+</head>
+
+<body>
+
+<div style=" text-align: center;
+                 padding: 20px;" class="logo-container">
+     <div class="symbol">
+       <div  class="gold-shape top-triangle"></div>
+       <div  class="gold-shape petal petal-left"></div>
+       <div  class="gold-shape petal petal-right"></div>
+     </div>
+     <h1 style=" font-size: 50px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1; font-family: 'Times New Roman', Times, serif; color:antiquewhite" class="main-text">EBRO</h1>
+     <p style="  font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+     color: var(--gold);
+     margin-top: 10px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px;   " class="sub-text">SHOP</p>
+    <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: var(--gold);
+           margin-top: 15px;
+           font-weight: 100;" class="tagline">Online platform</p>
+    
+</div>
+</body>
+</html>
+
+
+ 
+
+ <div style="margin: 0;
+     /* dark blue background */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 10vh;">
+    <div Style="display: flex;
+    justify-content: center;
+    align-items: center;" class="logo-container">
+        <svg width="150" height="180" viewBox="0 0 260 230">
+            <!-- Top shape -->
+            <path d="M130 10 L170 80 L90 80 Z" fill="#c5a14e" />
+
+            <!-- Bottom-left shape -->
+            <path d="M90 90 L40 170 Q30 200 65 210 Q100 220 130 170 Z" fill="#c5a14e" />
+
+            <!-- Bottom-right shape -->
+            <path d="M170 90 L220 170 Q230 200 195 210 Q160 220 130 170 Z" fill="#c5a14e" />
+        </svg>
+    </div>
+    <div>
+       <h1 style=" font-size: 50px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1; font-family: 'Times New Roman', Times, serif; color:antiquewhite" class="main-text">EBRO</h1>
+     <p style="  font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+       color: rgb(190, 160, 85);
+     margin-top: 3px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px; text-align: center;   " class="sub-text">SHOP</p>
+    <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: rgb(190, 160, 85);
+           margin-top: 5px;
+           font-weight: 100; text-align:center;" class="tagline">Online platform</p>
+    </div>
+    </div>
+    <br>
+    
+
+
+
+    <div class="symbol">
+       <div  class="gold-shape top-triangle"></div>
+       <div  class="gold-shape petal petal-left"></div>
+       <div  class="gold-shape petal petal-right"></div>
+     </div>
+
+
+
+
+      transition: all 0.7s ease;
+
+
+      <ul class="info-list" aria-hidden="false">
+              <li>🔔 እባክዎን ይህንን መረጃ ሳያነቡ አይዘዙ።</li>
+              <li> ለትዕዛዝዎ Transfer ከተጠቀሙ ከታች ያለውን ይተግብሩ።</li>
+              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> የተጠቀሙት ሂሳብ በዚህ አካውንት ይላኩልን።
+                CBE➡<b style="color: rgb(255, 255, 255); background-color: #494747;">1000617484793</b> Hayru Dejene
+                Telebirr➡<b style="color: rgb(255, 255, 255); background-color: #5a5959;">0970130755</b> Hayiru</li>
+              <li style="font-size:medium; font-family:'Times New Roman', Times, serif"> እንደላካቹ ለማረጋግጥ በዚህ ቴሌግራም
+                screenshot ይላኩልን። <a href="https://t.me/ebhayru55">t.me/EbRo-Shop</a></li>
+              <li> ትዕዛዝዎ እንዲጀምር ሙሉ ሂሳብ ወደተሰጣቹ አካውንት ማስገባት እና <b
+                  style="font-size: medium; font-family:Georgia, 'Times New Roman', Times, serif">screenshot</b> ወደቴሌግራም
+                መላክ አለባችሁ።</li>
+              <li> ትዕዛዝዎ ወድያውኑ በነጻ ወዳሉበት እናደርሳለን።</li>
+              <li> ምርጫችሁ ስላደረጋቹን እናመሰግናለን🙏🏿</li>
+              <li> አድራሻ፡ ቦሌ ኤድናሞል ማኛ ኬክ ፊትለፊት።</li>
+            </ul>
+
+             <div class="actions-row">
+              <button class="btn" id="sendOrderBtn">Send Order</button>
+              <button style="background-color: rgb(26, 127, 136);" class="btn secondary" id="copyOrderBtn">Copy
+                Order</button>
+              <button style="background-color: rgb(38, 164, 61);color: #faf0ea;" class="btn secondary"
+                id="clearCartBtn">Clear Bag</button>
+            </div>

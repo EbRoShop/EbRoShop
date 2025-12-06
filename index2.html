@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading.</title>
+
+<style>
+    body{
+         margin-top: 0px;
+        background:#04143a;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:80vh;
+        animation: fadeOut 2s ease 5s forwards;
+        text-align: center;
+    }
+
+.logo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Logo Symbol (Exact Replication) --- */
+.symbol {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.gold-shape {         
+    position:absolute;          
+    background-color: #c9a44c;          
+}
+
+.top-triangle {
+    width: 80px;
+    height: 70px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.petal {
+    width: 70px;
+    height: 80px;
+    border-radius: 0 0 50% 50%;
+    bottom: 0;
+}   
+
+.petal-left {
+    left: 20px;
+    transform: rotate(-35deg);
+}
+.petal-right {
+    right: 20px;
+    transform: rotate(35deg);
+}
+
+.main-text {
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 0;
+    line-height: 1;
+}
+
+.sub-text {
+     font-size: 18px;
+     font-weight: 400;
+     text-transform: uppercase;
+     color: var(--gold);
+     margin-top: 10px;
+     padding-bottom: 5px;
+     position: relative;
+     letter-spacing: 2px;      
+}
+.sub-text::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 5px auto 0;
+}
+
+.tagline {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 25px;
+    color: var(--gold);
+    margin-top: 15px;
+    font-weight: 100;
+}
+
+.logo{
+    text-align:center;
+    color:white;
+    animation: fadeIn 1.5s ease;
+}
+keyframes fadeIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+@keyframes fadeOut{
+    to{opacity:0;}
+}
+
+/* ----------------------- */
+/*   NEW ANIMATION CSS     */
+/* ----------------------- */
+
+.from-top {
+    opacity: 0;
+    transform: translateY(-80px);
+    animation: slideDown 2s ease-out forwards;
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.from-bottom {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: slideUp 2s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ⭐ NEW EXIT ANIMATION: Entire page moves UP */
+@keyframes slideUpExit {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+<body>
+    <div style=" text-align: center; padding: 20px;" class="logo-container">
+
+     <img src="./000000.jpg" alt="00000" width="200px" height="200px" class="from-top">
+      
+     <h1 style=" font-size: 80px;
+             font-weight: 700;
+             letter-spacing: 5px;
+             margin: 0;
+             line-height: 1;  color:#d9cfcf; font-family:'Courier New', Courier, monospace; font-style:unset;"
+             class="main-text from-bottom">EBRO</h1>
+
+     <p style="font-size: 30px;
+         font-weight: 400;
+         text-transform: uppercase;
+         color: var(--gold);
+         margin-top: 10px;
+         padding-bottom: 5px;
+         position: relative;
+         letter-spacing: 2px; color: #c9a44c;"
+         class="from-bottom">SHOP</p>
+
+    <p style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+           font-size: 25px;
+           color: var(--gold);
+           margin-top: 10px;
+           margin: 0;
+           font-weight: 100; color: #c9a44c;"
+           class="tagline from-bottom">Online platform</p> 
+</div>
+
+<script>
+    // ⭐ Add slide-up animation right before redirect
+    setTimeout(function(){
+        document.body.style.animation = "slideUpExit 3s ease forwards";
+
+        setTimeout(function(){
+            window.location.href = "home.html";
+        }, 1000);
+    }, 3000);
+</script>
+
+</body>
+</html>
